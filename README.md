@@ -22,21 +22,23 @@ OfficeDesk-Mobile is a comprehensive mobile application designed to streamline t
 
 Mockup UI Design Apps Interface For OfficeDesk-Mobile Data Appa Management
 # Initial View
-![OfficeDesk Logo](Mockup/Tampilan Awal.jpg)
+![OfficeDesk Logo](Mockup/InitialView.jpg)
 # User Interface For Login
 ![OfficeDesk Logo](Mockup/HomeLogin.jpg)
 # User Interface Sign Up
-![OfficeDesk Logo](Mockup/DaftarLogin.jpg)
+![OfficeDesk Logo](Mockup/SignUP.jpg)
 # User Interface For Dashboard
 ![OfficeDesk Logo](Mockup/Dashboard.jpg)
 # User Interface For Data Edit
-![OfficeDesk Logo](Mockup/Edit Data Karyawan.jpg)
+![OfficeDesk Logo](Mockup/DataEmployeeEdit.jpg)
 # User Interface For Employee Data List
-![OfficeDesk Logo](Mockup/List Data Karyawan.jpg)
+![OfficeDesk Logo](Mockup/EmployeeDataList.jpg)
 # User Interface For Add Data
-![OfficeDesk Logo](Mockup/Tambah Data.jpg)
+![OfficeDesk Logo](Mockup/AddData.jpg)
 # User Interface For Cloud Storage Or Save Upload
-![OfficeDesk Logo](Mockup/Menu Upload.jpg)
+![OfficeDesk Logo](Mockup/UploadMenu.jpg)
+# User Interface For Delete Data Employee
+![OfficeDesk Logo](Mockup/DeleteData.jpg)
 
 
 
