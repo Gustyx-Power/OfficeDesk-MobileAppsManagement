@@ -1,0 +1,5 @@
+# Mark all Kotlin files as Kotlin language
+*.kt linguist-language=Kotlin
+
+# Mark all Java files as Java language
+*.java linguist-language=Java
