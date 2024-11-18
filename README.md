@@ -24,7 +24,7 @@ OfficeDesk-Mobile is a comprehensive mobile application designed to streamline t
 ![OfficeDesk Logo](image-storyboard-officedesk.jpg)
 
 
-## Mockup UI Design Apps Interface For OfficeDesk-Mobile Data Appa Management
+## Mockup UI Design Apps Interface For OfficeDesk-Mobile Data Apps Management
 
 # Initial View
 ![OfficeDesk Logo](Mockup/InitialView.jpg)
