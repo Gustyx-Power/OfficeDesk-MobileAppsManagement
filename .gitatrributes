@@ -1,3 +1,5 @@
 
 *.kt linguist-language=Kotlin
 *.java linguist-language=Java
+
+*.kt linguist-detectable=true
