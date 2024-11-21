@@ -1,9 +1,15 @@
-# OfficeDesk-Mobile Data Apps Management
-# My Social Media
+# Follow My Social Media 😄
 <a href="https://t.me/GustyxPower">
   <img src="https://raw.githubusercontent.com/Gustyx-Power/OfficeDesk-MobileAppsManagement/main/telegram.png" alt="Telegram" width="100">
-</a>
-# OfficeDesk Logo
+<a href="https://t.me/GustyxPower">
+  <img src="https://raw.githubusercontent.com/Gustyx-Power/OfficeDesk-MobileAppsManagement/main/facebook.png" alt="Facebook" width="150">
+<a href="https://t.me/GustyxPower">
+  <img src="https://raw.githubusercontent.com/Gustyx-Power/OfficeDesk-MobileAppsManagement/main/instagram.png" alt="Instagram" width="100">
+<a href="https://t.me/GustyxPower">
+  <img src="https://raw.githubusercontent.com/Gustyx-Power/OfficeDesk-MobileAppsManagement/main/tiktok.png" alt="Tiktok" width="100">
+  </a>
+  
+# OfficeDesk-Mobile Data Apps Management
 ![OfficeDesk Logo](logo-officedesk.png)
 Overview
 OfficeDesk-Mobile is a comprehensive mobile application designed to streamline the process of employee data input and management. This application is tailored for administrative personnel who need an efficient and user-friendly tool to handle employee information on the go.
