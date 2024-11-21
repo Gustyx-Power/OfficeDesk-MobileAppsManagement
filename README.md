@@ -29,8 +29,6 @@ OfficeDesk-Mobile is a comprehensive mobile application designed to streamline t
 - Data Upload: Upload bulk employee data seamlessly.
 # Use Code
 - Kotlin
-- Java
-- Gradle
 # StoryBoard For OfficeDesk-Mobile Data Apps Management
 ![OfficeDesk Storyboard](image-storyboard-officedesk.jpg)
 
