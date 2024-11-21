@@ -1,11 +1,11 @@
 # Follow My Social Media 😄
 <a href="https://t.me/GustyxPower">
   <img src="https://raw.githubusercontent.com/Gustyx-Power/OfficeDesk-MobileAppsManagement/main/telegram.png" alt="Telegram" width="100">
-<a href="https://t.me/GustyxPower">
+<a href="https://www.facebook.com/profile.php?id=100069495283818&mibextid=ZbWKwL">
   <img src="https://raw.githubusercontent.com/Gustyx-Power/OfficeDesk-MobileAppsManagement/main/facebook.png" alt="Facebook" width="150">
-<a href="https://t.me/GustyxPower">
+<a href="https://www.instagram.com/gustyxpower_/profilecard/?igsh=MXY0amVlYjRmNXhndQ==">
   <img src="https://raw.githubusercontent.com/Gustyx-Power/OfficeDesk-MobileAppsManagement/main/instagram.png" alt="Instagram" width="100">
-<a href="https://t.me/GustyxPower">
+<a href="https://www.tiktok.com/@gustyxpower?_t=8raYQcKfl2Y&_r=1">
   <img src="https://raw.githubusercontent.com/Gustyx-Power/OfficeDesk-MobileAppsManagement/main/tiktok.png" alt="Tiktok" width="100">
   </a>
   
