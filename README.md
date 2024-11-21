@@ -1,7 +1,8 @@
 # OfficeDesk-Mobile Data Apps Management
 # My Social Media
-[![Telegram](telegram.png)](https://t.me/GustyxPower)
-
+<a href="https://t.me/GustyxPower">
+  <img src="https://raw.githubusercontent.com/Gustyx-Power/OfficeDesk-MobileAppsManagement/main/telegram.png" alt="Telegram" width="100">
+</a>
 # OfficeDesk Logo
 ![OfficeDesk Logo](logo-officedesk.png)
 Overview
