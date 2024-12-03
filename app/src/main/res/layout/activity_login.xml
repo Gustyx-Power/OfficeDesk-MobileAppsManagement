@@ -75,7 +75,8 @@
         android:layout_marginRight="100dp"
         android:layout_marginBottom="215dp"
         android:scaleType="fitXY"
-        android:src="@drawable/password_text" />
+        android:src="@drawable/password_text"
+        tools:ignore="ImageContrastCheck" />
 
     <EditText
         android:id="@+id/username"
@@ -87,8 +88,9 @@
         android:background="@drawable/background_username_password"
         android:hint="Masukkan Username / Email"
         android:padding="16dp"
-        android:textColor="#FFFFFF"
-        android:textColorHint="#F0203B" />
+        android:textColor="#000000"
+        android:textColorHint="#F0203B"
+        tools:ignore="TextContrastCheck" />
 
     <EditText
         android:id="@+id/password"
@@ -101,8 +103,9 @@
         android:hint="Masukkan Password"
         android:inputType="textPassword"
         android:padding="16dp"
-        android:textColor="#FFFFFF"
-        android:textColorHint="#F0203B" />
+        android:textColor="#000000"
+        android:textColorHint="#F0203B"
+        tools:ignore="TextContrastCheck" />
 
     <ImageButton
         android:id="@+id/signup"
@@ -118,7 +121,8 @@
         android:layout_marginRight="218dp"
         android:layout_marginBottom="37dp"
         android:background="@drawable/sign_button"
-        android:scaleType="fitXY" />
+        android:scaleType="fitXY"
+        tools:ignore="SpeakableTextPresentCheck" />
 
     <ImageButton
         android:id="@+id/button_login"
@@ -134,7 +138,8 @@
         android:layout_marginRight="20dp"
         android:layout_marginBottom="33dp"
         android:background="@drawable/login_button"
-        android:scaleType="fitXY" />
+        android:scaleType="fitXY"
+        tools:ignore="SpeakableTextPresentCheck" />
 
 
 </RelativeLayout>

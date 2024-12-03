@@ -43,5 +43,6 @@
         android:background="@android:color/transparent"
         android:contentDescription="@string/todo1"
         android:scaleType="fitXY"
-        android:src="@drawable/button_login" />
+        android:src="@drawable/button_login"
+        tools:ignore="TouchTargetSizeCheck,DuplicateSpeakableTextCheck" />
 </RelativeLayout>

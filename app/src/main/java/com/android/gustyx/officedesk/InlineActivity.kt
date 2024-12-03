@@ -1,4 +1,3 @@
-kotlin
 package com.android.gustyx.officedesk
 
 import android.content.Intent
@@ -20,5 +19,4 @@ class InlineActivity : AppCompatActivity() {
         }
     }
 }
-    }
-}
+
