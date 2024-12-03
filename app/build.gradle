@@ -5,7 +5,7 @@ plugins {
 
 android {
     namespace 'com.android.gustyx.officedesk'
-    compileSdk 32
+    compileSdk 35
 
     defaultConfig {
         applicationId "com.android.gustyx.officedesk"
