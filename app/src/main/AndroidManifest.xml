@@ -15,7 +15,9 @@
     android:theme="@style/AppTheme"
     tools:targetApi="29">
 
-    <activity android:name=".InlineActivity"
+    <activity
+        android:name=".InlineActivity"
+        android:exported="true"
         tools:ignore="IntentFilterExportedReceiver">
         <intent-filter>
             <action android:name="android.intent.action.MAIN" />
