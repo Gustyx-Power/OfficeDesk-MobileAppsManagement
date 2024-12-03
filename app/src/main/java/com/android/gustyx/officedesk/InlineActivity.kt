@@ -6,16 +6,16 @@ import android.widget.ImageButton
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 
-class Inline : AppCompatActivity() {
+class InlineActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_inline)
 
-        val buttonMasuk: ImageButton = findViewById(R.id.button_login
+        val buttonLogin: ImageButton = findViewById(R.id.button_login
         )
 
-        buttonMasuk.setOnClickListener {
-            val intent = Intent(this, LoginActivity::class.java)
+        buttonLogin.setOnClickListener {
+            val intent = Intent(this, SignUpActivity::class.java)
             startActivity(intent)
         }
     }
