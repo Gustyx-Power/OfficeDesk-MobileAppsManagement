@@ -24,6 +24,14 @@ import kotlin.system.exitProcess
 
 class SignUpActivity : AppCompatActivity() {
 
+    private val viewModel: UserViewModel by viewModels {
+        UserViewModelFactory(UserRepository(UserDatabase.getDatabase(this).userDao()))
+    }
+
+    private lateinit var executor: Executor
+    private lateinit var biometricPrompt: BiometricPrompt
+    private lateinit var promptInfo: BiometricPrompt.PromptInfo
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_signup)
