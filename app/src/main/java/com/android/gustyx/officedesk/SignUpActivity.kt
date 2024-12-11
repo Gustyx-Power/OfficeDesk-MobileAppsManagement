@@ -1,12 +1,26 @@
 package com.android.gustyx.officedesk
 
-
+import android.app.KeyguardManager
+import android.content.Context
+import android.content.Intent
+import android.os.Build
 import android.os.Bundle
 import android.view.WindowManager
 import android.widget.EditText
 import android.widget.ImageButton
-import androidx.appcompat.app.AppCompatActivity
 import android.widget.Toast
+import androidx.activity.viewModels
+import androidx.appcompat.app.AppCompatActivity
+import androidx.biometric.BiometricPrompt
+import androidx.core.content.ContextCompat
+import com.android.gustyx.officedesk.data.database.UserDatabase
+import com.android.gustyx.officedesk.data.entities.User
+import com.android.gustyx.officedesk.data.repository.UserRepository
+import com.android.gustyx.officedesk.data.viewmodel.UserViewModel
+import com.android.gustyx.officedesk.data.viewmodel.UserViewModelFactory
+import java.io.File
+import java.util.concurrent.Executor
+import kotlin.system.exitProcess
 
 class SignUpActivity : AppCompatActivity() {
 
