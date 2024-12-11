@@ -27,11 +27,11 @@ class SignUpActivity : AppCompatActivity() {
 
             if (username.isNotEmpty() && password.isNotEmpty()) {
 
-                Toast.makeText(this, "Sign Up Successful", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "Daftar Berhasil", Toast.LENGTH_SHORT).show()
 
 
             } else {
-                Toast.makeText(this, "Please fill in all fields", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "Isi Username Dan Password Terlebih Dahulu", Toast.LENGTH_SHORT).show()
             }
         }
     }
