@@ -1,12 +1,12 @@
 plugins {
     id 'com.android.application'
-    id 'org.jetbrains.kotlin.android'
+    id 'kotlin-android'
+    id 'com.google.devtools.ksp'
 }
 
 android {
     namespace 'com.android.gustyx.officedesk'
     compileSdk 35
-
     defaultConfig {
         applicationId "com.android.gustyx.officedesk"
         minSdk 26
@@ -16,8 +16,7 @@ android {
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         signingConfig signingConfigs.debug
-        applicationIdSuffix 'AlphaTest'
-        versionNameSuffix '0.0.1'
+        versionNameSuffix '2024.12.11'
     }
 
     buildTypes {
