@@ -41,7 +41,6 @@ class SignUpActivity : AppCompatActivity() {
         }
 
         setContentView(R.layout.activity_signup)
-
         window.setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN)
 
         val usernameEditText = findViewById<EditText>(R.id.username)
