@@ -34,6 +34,12 @@ class SignUpActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        if (isRooted()) {
+            showRootWarningAndExit()
+            return
+        }
+
         setContentView(R.layout.activity_signup)
 
         window.setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN)
@@ -78,15 +84,87 @@ class SignUpActivity : AppCompatActivity() {
         signUpButton.setOnClickListener {
             val username = usernameEditText.text.toString()
             val password = passwordEditText.text.toString()
-
             if (username.isNotEmpty() && password.isNotEmpty()) {
-
-                Toast.makeText(this, "Daftar Berhasil", Toast.LENGTH_SHORT).show()
-
-
+                if (isDeviceSecure()) {
+                    if (isRooted()) {
+                        showRootWarningAndExit()
+                        return@setOnClickListener
+                    } else {
+                        biometricPrompt.authenticate(promptInfo)
+                    }
+                } else {
+                    Toast.makeText(this, "Setel keamanan layar perangkat terlebih dahulu", Toast.LENGTH_SHORT).show()
+                }
             } else {
-                Toast.makeText(this, "Isi Username Dan Password Terlebih Dahulu", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "Isi Username dan Password Terlebih Dahulu", Toast.LENGTH_SHORT).show()
             }
         }
+
+        loginButton.setOnClickListener {
+            val username = usernameEditText.text.toString()
+            val password = passwordEditText.text.toString()
+            if (username.isNotEmpty() && password.isNotEmpty()) {
+                if (isRooted()) {
+                    showRootWarningAndExit()
+                    return@setOnClickListener
+                } else {
+                    viewModel.getUser(username, password) { user ->
+                        if (user != null) {
+                            Toast.makeText(this, "Login Berhasil", Toast.LENGTH_SHORT).show()
+                        } else {
+                            Toast.makeText(this, "Username atau Password Salah", Toast.LENGTH_SHORT).show()
+                        }
+                    }
+                }
+            } else {
+                Toast.makeText(this, "Isi Username dan Password Terlebih Dahulu", Toast.LENGTH_SHORT).show()
+            }
+        }
+    }
+
+    private fun isDeviceSecure(): Boolean {
+        val keyguardManager = getSystemService(Context.KEYGUARD_SERVICE) as KeyguardManager
+        return keyguardManager.isDeviceSecure
+    }
+
+    private fun isRooted(): Boolean {
+        val buildTags = Build.TAGS
+        if (buildTags != null && buildTags.contains("test-keys")) {
+            return true
+        }
+        val filePaths = arrayOf(
+            "/system/app/Superuser.apk", "/sbin/su", "/system/bin/su",
+            "/system/xbin/su", "/data/local/xbin/su", "/data/local/bin/su",
+            "/system/sd/xbin/su", "/system/bin/failsafe/su", "/data/local/su" , "/data/adb/ksud" ,
+            "/data/adb/ksu" , "/data/adb/modules" , "/data/adb/zygiskksu" , "/storage/emulated/0/Android/data/me.weishu.kernelsu"
+        )
+        for (path in filePaths) {
+            if (File(path).exists()) {
+                return true
+            }
+        }
+        return canExecuteCommand("/system/xbin/which su") || canExecuteCommand("/system/bin/which su") || canExecuteCommand("which su")
+    }
+
+    private fun canExecuteCommand(command: String): Boolean {
+        return try {
+            val process = Runtime.getRuntime().exec(command)
+            process.waitFor()
+            process.exitValue() == 0
+        } catch (e: Exception) {
+            false
+        }
+    }
+
+    private fun showRootWarningAndExit() {
+        Toast.makeText(this, "Perangkat telah di-root. Aplikasi akan ditutup.", Toast.LENGTH_SHORT).show()
+        android.os.Handler().postDelayed({
+            val intent = Intent(Intent.ACTION_MAIN)
+            intent.addCategory(Intent.CATEGORY_HOME)
+            intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK
+            startActivity(intent)
+            finish()
+            exitProcess(0)
+        }, 2000)
     }
 }
