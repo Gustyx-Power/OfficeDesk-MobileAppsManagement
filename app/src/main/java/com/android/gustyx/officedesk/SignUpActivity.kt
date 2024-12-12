@@ -178,6 +178,36 @@ class SignUpActivity : AppCompatActivity() {
         }
     }
 
+    private fun validateUsername(username: String): Boolean {
+        val usernamePattern = Pattern.compile("^[a-zA-Z0-9_]+$")
+        return usernamePattern.matcher(username).matches()
+    }
+
+    private fun validatePassword(password: String): Boolean {
+        val passwordPattern = Pattern.compile("^(?=.*[A-Z])(?=.*\\d)[A-Za-z\\d]{8,}$")
+        return passwordPattern.matcher(password).matches()
+    }
+
+    private fun loadLoginData(usernameEditText: EditText, passwordEditText: EditText, rememberMeCheckBox: CheckBox) {
+        val username = sharedPreferences.getString("username", "")
+        val password = sharedPreferences.getString("password", "")
+        val isRemembered = sharedPreferences.getBoolean("rememberMe", false)
+        if (isRemembered) {
+            usernameEditText.setText(username)
+            passwordEditText.setText(password)
+            rememberMeCheckBox.isChecked = true
+        }
+    }
+
+    private fun saveLoginData(username: String, password: String, isRemembered: Boolean) {
+        with(sharedPreferences.edit()) {
+            putString("username", username)
+            putString("password", password)
+            putBoolean("rememberMe", isRemembered)
+            apply()
+        }
+    }
+
     private fun showRootWarningAndExit() {
         Toast.makeText(this, "Perangkat telah di-root. Aplikasi akan ditutup.", Toast.LENGTH_SHORT).show()
         android.os.Handler().postDelayed({
