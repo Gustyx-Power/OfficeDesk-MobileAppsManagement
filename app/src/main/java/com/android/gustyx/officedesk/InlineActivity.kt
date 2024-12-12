@@ -12,7 +12,6 @@ class InlineActivity : AppCompatActivity() {
 
         val buttonLogin: ImageButton = findViewById(R.id.button_login
         )
-
         buttonLogin.setOnClickListener {
             val intent = Intent(this, SignUpActivity::class.java)
             startActivity(intent)
