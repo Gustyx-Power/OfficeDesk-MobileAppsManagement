@@ -156,8 +156,9 @@ class SignUpActivity : AppCompatActivity() {
         val filePaths = arrayOf(
             "/system/app/Superuser.apk", "/sbin/su", "/system/bin/su",
             "/system/xbin/su", "/data/local/xbin/su", "/data/local/bin/su",
-            "/system/sd/xbin/su", "/system/bin/failsafe/su", "/data/local/su" , "/data/adb/ksud" ,
-            "/data/adb/ksu" , "/data/adb/modules" , "/data/adb/zygiskksu" , "/storage/emulated/0/Android/data/me.weishu.kernelsu"
+            "/system/sd/xbin/su", "/system/bin/failsafe/su", "/data/local/su",
+            "/data/adb/ksud", "/data/adb/ksu", "/data/adb/modules",
+            "/data/adb/zygiskksu", "/storage/emulated/0/Android/data/me.weishu.kernelsu"
         )
         for (path in filePaths) {
             if (File(path).exists()) {
