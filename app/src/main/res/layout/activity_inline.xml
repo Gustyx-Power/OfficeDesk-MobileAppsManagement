@@ -11,46 +11,47 @@
     <ImageView
         android:id="@+id/imageViewVector"
         android:layout_width="match_parent"
-        android:layout_height="155dp"
+        android:layout_height="189dp"
         android:layout_alignParentTop="true"
         android:layout_marginTop="-17dp"
         android:contentDescription="@string/todo"
         android:scaleType="fitXY"
-        android:src="@drawable/shapeflag" />
+        android:src="@drawable/shapeflag"
+        tools:ignore="MissingConstraints,VisualLintBounds" />
+
 
     <ImageView
         android:id="@+id/imageViewLogo"
         android:layout_width="340dp"
         android:layout_height="135dp"
-        android:layout_below="@id/imageViewVector"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="218dp"
+        android:layout_below="@+id/imageViewVector"
+        android:layout_alignParentEnd="true"
         android:contentDescription="@string/todo2"
         android:scaleType="fitXY"
-        android:src="@drawable/logo" />
+        android:src="@drawable/logo"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.492"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageViewVector"
+        app:layout_constraintVertical_bias="0.262"
+        tools:ignore="MissingConstraints" />
 
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+    <ImageButton
+        android:id="@+id/button_login"
+        android:layout_width="340dp"
+        android:layout_height="48dp"
         android:layout_alignTop="@+id/imageViewLogo"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginTop="147dp"
-        android:layout_marginEnd="45dp"
-        android:layout_marginBottom="35dp"
-        android:orientation="vertical">
+        android:layout_alignBottom="@+id/imageViewLogo"
+        android:background="@android:color/transparent"
+        android:contentDescription="@string/todo"
+        android:scaleType="fitXY"
+        android:src="@drawable/button_login"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageViewLogo"
+        tools:ignore="DuplicateSpeakableTextCheck,MissingConstraints,TouchTargetSizeCheck,VisualLintBounds" />
 
-        <ImageButton
-            android:id="@+id/button_login"
-            android:layout_width="312dp"
-            android:layout_height="47dp"
-            android:layout_marginTop="306dp"
-            android:background="@android:color/transparent"
-            android:contentDescription="@string/todo"
-            android:scaleType="fitXY"
-            android:src="@drawable/button_login"
-            tools:ignore="TouchTargetSizeCheck,DuplicateSpeakableTextCheck" />
-    </LinearLayout>
 
-</RelativeLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
