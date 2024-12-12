@@ -93,15 +93,19 @@ class SignUpActivity : AppCompatActivity() {
             val username = usernameEditText.text.toString()
             val password = passwordEditText.text.toString()
             if (username.isNotEmpty() && password.isNotEmpty()) {
-                if (isDeviceSecure()) {
-                    if (isRooted()) {
-                        showRootWarningAndExit()
-                        return@setOnClickListener
+                if (validateUsername(username) && validatePassword(password)) {
+                    if (isDeviceSecure()) {
+                        if (isRooted()) {
+                            showRootWarningAndExit()
+                            return@setOnClickListener
+                        } else {
+                            biometricPrompt.authenticate(promptInfo)
+                        }
                     } else {
-                        biometricPrompt.authenticate(promptInfo)
+                        Toast.makeText(this, "Setel keamanan layar perangkat terlebih dahulu", Toast.LENGTH_SHORT).show()
                     }
                 } else {
-                    Toast.makeText(this, "Setel keamanan layar perangkat terlebih dahulu", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, "Username atau Password tidak memenuhi kriteria.", Toast.LENGTH_SHORT).show()
                 }
             } else {
                 Toast.makeText(this, "Isi Username dan Password Terlebih Dahulu", Toast.LENGTH_SHORT).show()
