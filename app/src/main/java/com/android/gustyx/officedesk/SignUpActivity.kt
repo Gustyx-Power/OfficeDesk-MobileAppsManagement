@@ -3,9 +3,11 @@ package com.android.gustyx.officedesk
 import android.app.KeyguardManager
 import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import android.os.Build
 import android.os.Bundle
 import android.view.WindowManager
+import android.widget.CheckBox
 import android.widget.EditText
 import android.widget.ImageButton
 import android.widget.Toast
@@ -20,8 +22,10 @@ import com.android.gustyx.officedesk.data.viewmodel.UserViewModel
 import com.android.gustyx.officedesk.data.viewmodel.UserViewModelFactory
 import java.io.File
 import java.util.concurrent.Executor
+import java.util.regex.Pattern
 import kotlin.system.exitProcess
 
+@Suppress("DEPRECATION")
 class SignUpActivity : AppCompatActivity() {
 
     private val viewModel: UserViewModel by viewModels {
@@ -31,6 +35,7 @@ class SignUpActivity : AppCompatActivity() {
     private lateinit var executor: Executor
     private lateinit var biometricPrompt: BiometricPrompt
     private lateinit var promptInfo: BiometricPrompt.PromptInfo
+    private lateinit var sharedPreferences: SharedPreferences
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -47,6 +52,10 @@ class SignUpActivity : AppCompatActivity() {
         val passwordEditText = findViewById<EditText>(R.id.password)
         val signUpButton = findViewById<ImageButton>(R.id.signup)
         val loginButton = findViewById<ImageButton>(R.id.login)
+        val rememberMeCheckBox = findViewById<CheckBox>(R.id.rememberMeCheckBox)
+
+        sharedPreferences = getSharedPreferences("AppPreferences", Context.MODE_PRIVATE)
+        loadLoginData(usernameEditText, passwordEditText, rememberMeCheckBox)
 
         // Konfigurasi BiometricPrompt
         executor = ContextCompat.getMainExecutor(this)
@@ -114,6 +123,8 @@ class SignUpActivity : AppCompatActivity() {
                             Toast.makeText(this, "Username atau Password Salah", Toast.LENGTH_SHORT).show()
                         }
                     }
+                        saveLoginData(username, password, rememberMeCheckBox.isChecked)
+                        viewModel.getUser(username, password) { user ->
                 }
             } else {
                 Toast.makeText(this, "Isi Username dan Password Terlebih Dahulu", Toast.LENGTH_SHORT).show()
