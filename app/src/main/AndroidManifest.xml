@@ -22,16 +22,24 @@
 
     <activity
         android:name=".SplashActivity"
-        android:exported="true">
+        android:screenOrientation="portrait"
+        android:exported="true"
+        tools:ignore="DiscouragedApi,LockedOrientationActivity">
         <intent-filter>
             <action android:name="android.intent.action.MAIN" />
             <category android:name="android.intent.category.LAUNCHER" />
         </intent-filter>
     </activity>
 
-    <activity android:name=".InlineActivity" />
-    <activity android:name=".SignUpActivity" />
-    <activity android:name=".DashboardActivity" />
+    <activity android:name=".InlineActivity"
+        android:screenOrientation="portrait"
+        tools:ignore="DiscouragedApi,LockedOrientationActivity" />
+    <activity android:name=".SignUpActivity"
+        android:screenOrientation="portrait"
+        tools:ignore="DiscouragedApi,LockedOrientationActivity" />
+    <activity android:name=".DashboardActivity"
+        android:screenOrientation="portrait"
+        tools:ignore="DiscouragedApi,LockedOrientationActivity" />
 
 </application>
 
