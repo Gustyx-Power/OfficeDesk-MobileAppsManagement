@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    tools:context=".SignUpActivity">
+
+    <ImageView
+        android:id="@+id/header_image"
+        android:layout_width="0dp"
+        android:layout_height="155dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/shapeflag"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="ContentDescription" />
+
+    <ImageView
+        android:id="@+id/title_image"
+        android:layout_width="329dp"
+        android:layout_height="129dp"
+        android:layout_marginTop="12dp"
+        android:src="@drawable/logo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.49"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/header_image"
+        tools:ignore="ContentDescription" />
+
+    <ImageView
+        android:id="@+id/tagline_image"
+        android:layout_width="357dp"
+        android:layout_height="33dp"
+        android:layout_marginTop="48dp"
+        android:layout_marginEnd="14dp"
+        android:src="@drawable/texthome"
+        app:layout_constraintEnd_toEndOf="@+id/title_image"
+        app:layout_constraintHorizontal_bias="0.309"
+        app:layout_constraintStart_toStartOf="@+id/title_image"
+        app:layout_constraintTop_toBottomOf="@id/title_image"
+        tools:ignore="ContentDescription" />
+
+    <ImageView
+        android:id="@+id/username_password_background"
+        android:layout_width="374dp"
+        android:layout_height="331dp"
+        android:layout_marginTop="56dp"
+        android:background="@drawable/shape_vector"
+        android:orientation="vertical"
+        android:padding="16dp"
+        app:layout_constraintEnd_toEndOf="@+id/title_image"
+        app:layout_constraintHorizontal_bias="0.48"
+        app:layout_constraintStart_toStartOf="@+id/title_image"
+        app:layout_constraintTop_toBottomOf="@id/tagline_image"
+        tools:ignore="ContentDescription,VisualLintBounds" />
+
+    <ImageView
+        android:id="@+id/usernametext"
+        android:layout_width="157dp"
+        android:layout_height="33dp"
+        android:layout_gravity="center_horizontal"
+        android:scaleType="fitXY"
+        android:src="@drawable/username_text"
+        app:layout_constraintBottom_toBottomOf="@+id/username_password_background"
+        app:layout_constraintEnd_toEndOf="@+id/username_password_background"
+        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintStart_toStartOf="@+id/username_password_background"
+        app:layout_constraintTop_toTopOf="@+id/username_password_background"
+        app:layout_constraintVertical_bias="0.101"
+        tools:ignore="ContentDescription" />
+
+    <EditText
+        android:id="@+id/username"
+        android:layout_width="322dp"
+        android:layout_height="64dp"
+        android:layout_marginTop="12dp"
+        android:background="@drawable/background_username_password"
+        android:hint="Masukkan Username"
+        android:padding="16dp"
+        android:textColor="#000000"
+        android:textColorHint="#F0203B"
+        app:layout_constraintEnd_toEndOf="@+id/username_password_background"
+        app:layout_constraintHorizontal_bias="0.488"
+        app:layout_constraintStart_toStartOf="@+id/username_password_background"
+        app:layout_constraintTop_toBottomOf="@+id/usernametext"
+        tools:ignore="Autofill,HardcodedText,TextContrastCheck,TextFields" />
+
+    <ImageView
+        android:id="@+id/passwordtext"
+        android:layout_width="155dp"
+        android:layout_height="28dp"
+        android:layout_gravity="center_horizontal"
+        android:scaleType="fitXY"
+        android:src="@drawable/password_text"
+        app:layout_constraintBottom_toBottomOf="@+id/username_password_background"
+        app:layout_constraintEnd_toEndOf="@+id/username_password_background"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="@+id/username_password_background"
+        app:layout_constraintTop_toTopOf="@+id/username_password_background"
+        app:layout_constraintVertical_bias="0.505"
+        tools:ignore="ContentDescription,ImageContrastCheck,MissingConstraints" />
+
+    <EditText
+        android:id="@+id/password"
+        android:layout_width="321dp"
+        android:layout_height="59dp"
+        android:background="@drawable/background_username_password"
+        android:hint="Masukkan Password"
+        android:inputType="textPassword"
+        android:padding="16dp"
+        android:textColor="#000000"
+        android:textColorHint="#F0203B"
+        app:layout_constraintBottom_toBottomOf="@+id/username_password_background"
+        app:layout_constraintEnd_toEndOf="@+id/username"
+        app:layout_constraintHorizontal_bias="0.677"
+        app:layout_constraintStart_toStartOf="@+id/username"
+        app:layout_constraintTop_toTopOf="@+id/username_password_background"
+        app:layout_constraintVertical_bias="0.72"
+        tools:ignore="Autofill,HardcodedText,TextContrastCheck" />
+
+    <CheckBox
+        android:id="@+id/rememberMeCheckBox"
+        android:layout_width="144dp"
+        android:layout_height="48dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="316dp"
+        android:text="Simpan Login"
+        android:textColor="#000000"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.513"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tagline_image"
+        tools:ignore="HardcodedText" />
+
+    <ImageButton
+        android:id="@+id/signup"
+        android:layout_width="213dp"
+        android:layout_height="59dp"
+        android:layout_marginTop="100dp"
+        android:background="@drawable/sign_button"
+        android:contentDescription="TODO"
+        android:scaleType="fitXY"
+        app:layout_constraintStart_toStartOf="@+id/username_password_background"
+        app:layout_constraintTop_toBottomOf="@+id/password"
+        app:layout_constraintWidth_percent="0.45"
+        tools:ignore="ContentDescription,DuplicateSpeakableTextCheck,HardcodedText,MissingConstraints,SpeakableTextPresentCheck,VisualLintBounds" />
+
+    <ImageButton
+        android:id="@+id/login"
+        android:layout_width="154dp"
+        android:layout_height="59dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="100dp"
+        android:background="@drawable/login_button"
+        android:contentDescription="TODO"
+        android:scaleType="fitXY"
+        app:layout_constraintEnd_toEndOf="@+id/password"
+        app:layout_constraintHorizontal_bias="0.209"
+        app:layout_constraintStart_toEndOf="@+id/signup"
+        app:layout_constraintTop_toBottomOf="@+id/password"
+        app:layout_constraintWidth_percent="0.45"
+        tools:ignore="ContentDescription,HardcodedText,MissingConstraints,SpeakableTextPresentCheck,VisualLintBounds" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

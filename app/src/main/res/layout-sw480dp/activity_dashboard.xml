@@ -21,7 +21,7 @@
 
     <EditText
         android:id="@+id/searchBarFeature"
-        android:layout_width="328dp"
+        android:layout_width="694dp"
         android:layout_height="49dp"
         android:layout_marginStart="4dp"
         android:background="@drawable/searchbar"
@@ -40,16 +40,16 @@
 
     <ImageView
         android:id="@+id/searchlogo"
-        android:layout_width="46dp"
-        android:layout_height="39dp"
+        android:layout_width="31dp"
+        android:layout_height="38dp"
         android:layout_below="@id/searchBarFeature"
         android:background="@drawable/searchlogo"
         app:layout_constraintBottom_toTopOf="@+id/listfeatures"
         app:layout_constraintEnd_toEndOf="@+id/searchBarFeature"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.016"
         app:layout_constraintStart_toStartOf="@+id/searchBarFeature"
         app:layout_constraintTop_toTopOf="@+id/searchBarFeature"
-        app:layout_constraintVertical_bias="0.05"
+        app:layout_constraintVertical_bias="0.142"
         tools:ignore="ContentDescription,MissingConstraints" />
 
     <ImageView
@@ -59,11 +59,12 @@
         android:src="@drawable/administrator_logo"
         app:layout_constraintBottom_toBottomOf="@+id/headerflagdash"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.977"
         app:layout_constraintStart_toStartOf="@+id/headerflagdash"
         app:layout_constraintTop_toTopOf="@+id/headerflagdash"
         app:layout_constraintVertical_bias="0.179"
         tools:ignore="ContentDescription,MissingConstraints" />
+
 
     <ImageButton
         android:id="@+id/uploadfeature"
@@ -73,12 +74,11 @@
         android:contentDescription="@string/todo"
         app:layout_constraintBottom_toBottomOf="@+id/headerflagdash"
         app:layout_constraintEnd_toStartOf="@+id/listfeatures"
-        app:layout_constraintHorizontal_bias="0.317"
+        app:layout_constraintHorizontal_bias="0.279"
         app:layout_constraintStart_toStartOf="@+id/headerflagdash"
         app:layout_constraintTop_toTopOf="@+id/headerflagdash"
         app:layout_constraintVertical_bias="0.615"
         tools:ignore="MissingConstraints,DuplicateSpeakableTextCheck" />
-
 
     <TextView
         android:id="@+id/uploadtext"
@@ -88,7 +88,7 @@
         android:background="@drawable/upload_text"
         app:layout_constraintBottom_toBottomOf="@+id/headerflagdash"
         app:layout_constraintEnd_toStartOf="@+id/listtext"
-        app:layout_constraintHorizontal_bias="0.372"
+        app:layout_constraintHorizontal_bias="0.287"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/headerflagdash"
         app:layout_constraintVertical_bias="0.929"
@@ -101,7 +101,7 @@
         android:background="@drawable/list_button"
         app:layout_constraintBottom_toBottomOf="@+id/headerflagdash"
         app:layout_constraintEnd_toStartOf="@+id/headerflagdash"
-        app:layout_constraintHorizontal_bias="0.554"
+        app:layout_constraintHorizontal_bias="0.527"
         app:layout_constraintStart_toEndOf="@+id/headerflagdash"
         app:layout_constraintTop_toTopOf="@+id/headerflagdash"
         app:layout_constraintVertical_bias="0.653"
@@ -115,7 +115,7 @@
         android:background="@drawable/list_text"
         app:layout_constraintBottom_toBottomOf="@+id/headerflagdash"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.395"
+        app:layout_constraintHorizontal_bias="0.465"
         app:layout_constraintStart_toStartOf="@+id/headerflagdash"
         app:layout_constraintTop_toBottomOf="@+id/listfeatures"
         app:layout_constraintVertical_bias="0.451"
@@ -142,15 +142,15 @@
         android:background="@drawable/add_button_text"
         app:layout_constraintBottom_toBottomOf="@+id/headerflagdash"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.941"
+        app:layout_constraintHorizontal_bias="0.882"
         app:layout_constraintStart_toStartOf="@+id/headerflagdash"
         app:layout_constraintTop_toBottomOf="@+id/addfeatures"
         tools:ignore="MissingConstraints" />
 
     <TextView
         android:id="@+id/welcomeTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="393dp"
+        android:layout_height="51dp"
         android:layout_centerHorizontal="true"
         android:fontFamily="@font/inter_bold"
         android:text="Selamat Datang, Administrator!"
@@ -158,24 +158,24 @@
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.24"
+        app:layout_constraintHorizontal_bias="0.087"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/headerflagdash"
-        app:layout_constraintVertical_bias="0.046"
+        app:layout_constraintVertical_bias="0.042"
         tools:ignore="HardcodedText,MissingConstraints" />
 
     <ImageView
         android:id="@+id/historytextdb"
-        android:layout_width="379dp"
-        android:layout_height="64dp"
-        android:layout_marginTop="35dp"
+        android:layout_width="543dp"
+        android:layout_height="81dp"
         android:background="@drawable/history_db"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.139"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/welcomeTextView"
-        app:layout_constraintVertical_bias="0.0"
-        tools:ignore="ContentDescription,MissingConstraints" />
+        app:layout_constraintTop_toTopOf="@+id/headerflagdash"
+        app:layout_constraintVertical_bias="0.264"
+        tools:ignore="MissingConstraints" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

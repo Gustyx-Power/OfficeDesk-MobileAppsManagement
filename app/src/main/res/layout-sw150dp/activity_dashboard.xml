@@ -128,10 +128,10 @@
         android:background="@drawable/add_button"
         app:layout_constraintBottom_toBottomOf="@+id/headerflagdash"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.65"
+        app:layout_constraintHorizontal_bias="0.529"
         app:layout_constraintStart_toEndOf="@+id/listfeatures"
         app:layout_constraintTop_toTopOf="@+id/headerflagdash"
-        app:layout_constraintVertical_bias="0.641"
+        app:layout_constraintVertical_bias="0.662"
         tools:ignore="ContentDescription,MissingConstraints,SpeakableTextPresentCheck" />
 
     <TextView
@@ -166,16 +166,16 @@
 
     <ImageView
         android:id="@+id/historytextdb"
-        android:layout_width="379dp"
-        android:layout_height="64dp"
-        android:layout_marginTop="35dp"
+        android:layout_width="368dp"
+        android:layout_height="65dp"
         android:background="@drawable/history_db"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.321"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/welcomeTextView"
-        app:layout_constraintVertical_bias="0.0"
-        tools:ignore="ContentDescription,MissingConstraints" />
+        app:layout_constraintTop_toTopOf="@+id/headerflagdash"
+        app:layout_constraintVertical_bias="0.425"
+        tools:ignore="MissingConstraints" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

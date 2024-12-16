@@ -40,8 +40,8 @@
 
     <ImageView
         android:id="@+id/searchlogo"
-        android:layout_width="46dp"
-        android:layout_height="39dp"
+        android:layout_width="41dp"
+        android:layout_height="35dp"
         android:layout_below="@id/searchBarFeature"
         android:background="@drawable/searchlogo"
         app:layout_constraintBottom_toTopOf="@+id/listfeatures"
@@ -49,7 +49,7 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/searchBarFeature"
         app:layout_constraintTop_toTopOf="@+id/searchBarFeature"
-        app:layout_constraintVertical_bias="0.05"
+        app:layout_constraintVertical_bias="0.166"
         tools:ignore="ContentDescription,MissingConstraints" />
 
     <ImageView
@@ -166,16 +166,16 @@
 
     <ImageView
         android:id="@+id/historytextdb"
-        android:layout_width="379dp"
-        android:layout_height="64dp"
-        android:layout_marginTop="35dp"
+        android:layout_width="396dp"
+        android:layout_height="63dp"
         android:background="@drawable/history_db"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/welcomeTextView"
-        app:layout_constraintVertical_bias="0.0"
-        tools:ignore="ContentDescription,MissingConstraints" />
+        app:layout_constraintTop_toTopOf="@+id/headerflagdash"
+        app:layout_constraintVertical_bias="0.42"
+        tools:ignore="MissingConstraints" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
