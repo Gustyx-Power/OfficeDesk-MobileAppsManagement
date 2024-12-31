@@ -4,7 +4,6 @@ import android.app.KeyguardManager
 import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
-import android.os.Build
 import android.os.Bundle
 import android.view.WindowManager
 import android.widget.CheckBox
@@ -40,6 +39,7 @@ class SignUpActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        // Cek apakah perangkat di-root
         if (isRooted()) {
             showRootWarningAndExit()
             return
@@ -48,16 +48,32 @@ class SignUpActivity : AppCompatActivity() {
         setContentView(R.layout.activity_signup)
         window.setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN)
 
+        // Inisialisasi view
         val usernameEditText = findViewById<EditText>(R.id.username)
         val passwordEditText = findViewById<EditText>(R.id.password)
         val signUpButton = findViewById<ImageButton>(R.id.signup)
         val loginButton = findViewById<ImageButton>(R.id.login)
         val rememberMeCheckBox = findViewById<CheckBox>(R.id.rememberMeCheckBox)
 
-        sharedPreferences = getSharedPreferences("AppPreferences", Context.MODE_PRIVATE)
+        // Load data login jika Remember Me diaktifkan
+        sharedPreferences = getSharedPreferences("AppPreferences", MODE_PRIVATE)
         loadLoginData(usernameEditText, passwordEditText, rememberMeCheckBox)
 
-        // Konfigurasi BiometricPrompt
+        // Inisialisasi Biometric Prompt
+        setupBiometricPrompt(usernameEditText, passwordEditText)
+
+        // Handle tombol Sign Up
+        signUpButton.setOnClickListener {
+            handleSignUp(usernameEditText, passwordEditText)
+        }
+
+        // Handle tombol Login
+        loginButton.setOnClickListener {
+            handleLogin(usernameEditText, passwordEditText, rememberMeCheckBox)
+        }
+    }
+
+    private fun setupBiometricPrompt(usernameEditText: EditText, passwordEditText: EditText) {
         executor = ContextCompat.getMainExecutor(this)
         biometricPrompt = BiometricPrompt(this, executor,
             object : BiometricPrompt.AuthenticationCallback() {
@@ -88,58 +104,46 @@ class SignUpActivity : AppCompatActivity() {
             .setSubtitle("Gunakan sidik jari atau face unlock untuk verifikasi")
             .setNegativeButtonText("Batalkan")
             .build()
+    }
 
-        signUpButton.setOnClickListener {
-            val username = usernameEditText.text.toString()
-            val password = passwordEditText.text.toString()
-            if (username.isNotEmpty() && password.isNotEmpty()) {
-                if (validateUsername(username) && validatePassword(password)) {
-                    if (isDeviceSecure()) {
-                        if (isRooted()) {
-                            showRootWarningAndExit()
-                            return@setOnClickListener
-                        } else {
-                            biometricPrompt.authenticate(promptInfo)
-                        }
-                    } else {
-                        Toast.makeText(this, "Setel keamanan layar perangkat terlebih dahulu", Toast.LENGTH_SHORT).show()
-                    }
+    private fun handleSignUp(usernameEditText: EditText, passwordEditText: EditText) {
+        val username = usernameEditText.text.toString()
+        val password = passwordEditText.text.toString()
+        if (username.isNotEmpty() && password.isNotEmpty()) {
+            if (validateUsername(username) && validatePassword(password)) {
+                if (isDeviceSecure()) {
+                    biometricPrompt.authenticate(promptInfo)
                 } else {
-                    Toast.makeText(this, "Username atau Password tidak memenuhi kriteria.", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, "Setel keamanan layar perangkat terlebih dahulu", Toast.LENGTH_SHORT).show()
                 }
             } else {
-                Toast.makeText(this, "Isi Username dan Password Terlebih Dahulu", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "Username atau Password tidak memenuhi kriteria.", Toast.LENGTH_SHORT).show()
             }
+        } else {
+            Toast.makeText(this, "Isi Username dan Password Terlebih Dahulu", Toast.LENGTH_SHORT).show()
         }
+    }
 
-        loginButton.setOnClickListener {
-            val username = usernameEditText.text.toString()
-            val password = passwordEditText.text.toString()
-            if (username.isNotEmpty() && password.isNotEmpty()) {
-                if (validateUsername(username) && validatePassword(password)) {
-                    if (isRooted()) {
-                        showRootWarningAndExit()
-                        return@setOnClickListener
+    private fun handleLogin(usernameEditText: EditText, passwordEditText: EditText, rememberMeCheckBox: CheckBox) {
+        val username = usernameEditText.text.toString()
+        val password = passwordEditText.text.toString()
+        if (username.isNotEmpty() && password.isNotEmpty()) {
+            if (validateUsername(username) && validatePassword(password)) {
+                saveLoginData(username, password, rememberMeCheckBox.isChecked)
+                viewModel.getUser(username, password) { user ->
+                    if (user != null) {
+                        Toast.makeText(this, "Login Berhasil", Toast.LENGTH_SHORT).show()
                         val intent = Intent(this, DashboardActivity::class.java)
                         startActivity(intent)
                     } else {
-                        saveLoginData(username, password, rememberMeCheckBox.isChecked)
-                        viewModel.getUser(username, password) { user ->
-                            if (user != null) {
-                                Toast.makeText(this, "Login Berhasil", Toast.LENGTH_SHORT).show()
-                                val intent = Intent(this, DashboardActivity::class.java)
-                                startActivity(intent)
-                            } else {
-                                Toast.makeText(this, "Username atau Password Salah", Toast.LENGTH_SHORT).show()
-                            }
-                        }
+                        Toast.makeText(this, "Username atau Password Salah", Toast.LENGTH_SHORT).show()
                     }
-                } else {
-                    Toast.makeText(this, "Username atau Password tidak memenuhi kriteria.", Toast.LENGTH_SHORT).show()
                 }
             } else {
-                Toast.makeText(this, "Isi Username dan Password Terlebih Dahulu", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "Username atau Password tidak memenuhi kriteria.", Toast.LENGTH_SHORT).show()
             }
+        } else {
+            Toast.makeText(this, "Isi Username dan Password Terlebih Dahulu", Toast.LENGTH_SHORT).show()
         }
     }
 
@@ -149,43 +153,20 @@ class SignUpActivity : AppCompatActivity() {
     }
 
     private fun isRooted(): Boolean {
-        val buildTags = Build.TAGS
-        if (buildTags != null && buildTags.contains("test-keys")) {
-            return true
-        }
         val filePaths = arrayOf(
             "/system/app/Superuser.apk", "/sbin/su", "/system/bin/su",
             "/system/xbin/su", "/data/local/xbin/su", "/data/local/bin/su",
-            "/system/sd/xbin/su", "/system/bin/failsafe/su", "/data/local/su",
-            "/data/adb/ksud", "/data/adb/ksu", "/data/adb/modules",
-            "/data/adb/zygiskksu", "/storage/emulated/0/Android/data/me.weishu.kernelsu"
+            "/system/sd/xbin/su", "/system/bin/failsafe/su", "/data/local/su"
         )
-        for (path in filePaths) {
-            if (File(path).exists()) {
-                return true
-            }
-        }
-        return canExecuteCommand("/system/xbin/which su") || canExecuteCommand("/system/bin/which su") || canExecuteCommand("which su")
-    }
-
-    private fun canExecuteCommand(command: String): Boolean {
-        return try {
-            val process = Runtime.getRuntime().exec(command)
-            process.waitFor()
-            process.exitValue() == 0
-        } catch (e: Exception) {
-            false
-        }
+        return filePaths.any { File(it).exists() }
     }
 
     private fun validateUsername(username: String): Boolean {
-        val usernamePattern = Pattern.compile("^[a-zA-Z0-9_]+$")
-        return usernamePattern.matcher(username).matches()
+        return Pattern.compile("^[a-zA-Z0-9_]+$").matcher(username).matches()
     }
 
     private fun validatePassword(password: String): Boolean {
-        val passwordPattern = Pattern.compile("^(?=.*[A-Z])(?=.*\\d)[A-Za-z\\d]{8,}$")
-        return passwordPattern.matcher(password).matches()
+        return Pattern.compile("^(?=.*[A-Z])(?=.*\\d)[A-Za-z\\d]{8,}$").matcher(password).matches()
     }
 
     private fun loadLoginData(usernameEditText: EditText, passwordEditText: EditText, rememberMeCheckBox: CheckBox) {
@@ -210,13 +191,7 @@ class SignUpActivity : AppCompatActivity() {
 
     private fun showRootWarningAndExit() {
         Toast.makeText(this, "Perangkat telah di-root. Aplikasi akan ditutup.", Toast.LENGTH_SHORT).show()
-        android.os.Handler().postDelayed({
-            val intent = Intent(Intent.ACTION_MAIN)
-            intent.addCategory(Intent.CATEGORY_HOME)
-            intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK
-            startActivity(intent)
-            finish()
-            exitProcess(0)
-        }, 2000)
+        finish()
+        exitProcess(0)
     }
 }
