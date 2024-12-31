@@ -4,10 +4,21 @@
     <selectionStates>
       <SelectionState runConfigName="app">
         <option name="selectionMode" value="DROPDOWN" />
-        <DropdownSelection timestamp="2024-12-12T11:29:08.485394100Z">
+        <DropdownSelection timestamp="2024-12-26T20:55:49.084833300Z">
           <Target type="DEFAULT_BOOT">
             <handle>
-              <DeviceId pluginId="PhysicalDevice" identifier="serial=5fc99726" />
+              <DeviceId pluginId="LocalEmulator" identifier="path=C:\Users\Gustyx Power\.android\avd\Xiaomi_Poco_F5_API_34.avd" />
+            </handle>
+          </Target>
+        </DropdownSelection>
+        <DialogSelection />
+      </SelectionState>
+      <SelectionState runConfigName="DashboardActivity">
+        <option name="selectionMode" value="DROPDOWN" />
+        <DropdownSelection timestamp="2024-12-30T17:56:42.649452200Z">
+          <Target type="DEFAULT_BOOT">
+            <handle>
+              <DeviceId pluginId="LocalEmulator" identifier="path=C:\Users\Gustyx Power\.android\avd\Xiaomi_Poco_F5_API_34.avd" />
             </handle>
           </Target>
         </DropdownSelection>
