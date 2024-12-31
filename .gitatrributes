@@ -1,3 +1,2 @@
-# Add Specific Language
-src/main/java/InlineActivity.kt linguist-language=Kotlin
-src/main/java/LoginActivity.kt linguist-language=Kotlin
+app/src/main/java/InlineActivity.kt linguist-language=Kotlin
+app/src/main/java/LoginActivity.kt linguist-language=Kotlin
