@@ -1,6 +1,7 @@
 # Developer Name
 Gusti Aditya Muzaky / Gustyx-Power
 # Seeking Knowledge at University
+![Pelita Bangsa Logo](universitylogo.png)
 - Pelita Bangsa University
 - Class : TI.23.C3 / INFORMATICS ENGINEERING
 - NIM : 312310193
