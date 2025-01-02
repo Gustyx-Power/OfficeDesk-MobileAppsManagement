@@ -1,9 +1,9 @@
 # Developer Name
-Gusti Aditya Muzaky
+Gusti Aditya Muzaky / Gustyx-Power
 # Seeking Knowledge at University
-Pelita Bangsa University
-Class : TI.23.C3 / INFORMATICS ENGINEERING
-NIM : 312310193
+- Pelita Bangsa University
+- Class : TI.23.C3 / INFORMATICS ENGINEERING
+- NIM : 312310193
 # Follow My Social Media 😄
 <a href="https://t.me/GustyxPower">
   <img src="https://raw.githubusercontent.com/Gustyx-Power/OfficeDesk-MobileAppsManagement/main/telegram.png" alt="Telegram" width="100">
